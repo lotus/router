@@ -27,7 +27,7 @@ RSpec.describe Hanami::Router do
     end
     let(:base_url) { "https://hanami.test" }
     let(:prefix) { "/admin" }
-    let(:endpoint) { ->(*) { [200, {"Content-Length" => "4"}, ["home"]] } }
+    let(:endpoint) { ->(*) { [200, {"content-length" => "4"}, ["home"]] } }
 
     it "generates relative URLs with prefix" do
       expect(subject.path(:root)).to eq("/admin")
@@ -90,7 +90,7 @@ RSpec.describe Hanami::Router do
       status, headers, = subject.call(env)
 
       expect(status).to eq(301)
-      expect(headers["Location"]).to eq("/admin/redirect_destination")
+      expect(headers["location"]).to eq("/admin/redirect_destination")
     end
   end
 end
